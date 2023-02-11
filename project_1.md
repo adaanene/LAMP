@@ -2,10 +2,8 @@
 
 Scope: to gain familiarity with the Linux terminal and commands,  to generate and implement LAMP components 
 
-## **Step 1: Setting up OpenSSH server and connecting to EC2 instance**
+## Step 1: Setting up OpenSSH server and connecting to EC2 instance
 
-AWS server was connected to with ssh 
-`ssh -i "PBL_key_pair.pem" ubuntu@ec2-13-41-225-1.eu-west-2.compute.amazonaws.com`
  
 
 Links used for help 
@@ -13,21 +11,19 @@ Links used for help
 
 ![connecting to e2c instance](./images/conncet_ec2_instance1.png)
 
-## **Step 2: Installing Apache and updating the Firewall**
+## Step 2: Installing Apache and updating the Firewall
 
-Following installation of components, Apache status was confirmed 
 
 ![sudo apt install apache2](./images/sudo_apt_install_apache2.png)
 
 
-## **Step 3: Installing MySQL**
+## Step 3: Installing MySQL
 
-Successful installation of MySQL
 
 ![mysql installation](./images/installing_mysql.png)
 
 
-### **Setting password for root user on MySQL**
+### Setting password for root user on MySQL
 
 - Running `sudo mysql_secure_installation`  for password validation
 
@@ -35,8 +31,7 @@ At this point, I had trouble figuring out how to enter the password, as nothing 
 
 ![password](./images/setting_password_mysql_2.png)
 
-## **Step 4: Installing PHP**
-
+## Step 4: Installing PHP
 Installed PHP components using `sudo apt install php libapache2-mod-php php-mysql`
 
  PHP version was confirmed with `php -v`
@@ -54,20 +49,6 @@ Installed PHP components using `sudo apt install php libapache2-mod-php php-mysq
 
 ## **Step 6: enabling PHP on the website**
 
-Syntax added to dir.conf to chnage position of of index.php
-
-`sudo vim /etc/apache2/mods-enabled/dir.conf`
-
-
-Syntax:
-```
-<IfModule mod_dir.c>
-        #Change this:
-        #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
-        #To this:
-        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-</IfModule>
-```
 When my reload of Apache failed, I looked up the error on Google and found that it was caused by a syntax error. Using `apache2ctl configtest`, I found that the error was in dir.conf, which I had recently modified. After deleting the error I was able to succsessfully reload the Apache.
 
 ![error](./images/apache2_reload_error.png)
