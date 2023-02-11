@@ -57,7 +57,7 @@ Installed PHP components using `sudo apt install php libapache2-mod-php php-mysq
 
 ![testing virtual host](./images/testing_website.png)
 
-# **Step 6: enabling PHP on the website**
+## **Step 6: enabling PHP on the website**
 
 Syntax added to dir.conf to chnage position of of index.php
 
