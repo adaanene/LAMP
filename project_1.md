@@ -1,73 +1,92 @@
 # **PROJECT 1 DOCUMENTATION: LAMP STACK IMPLEMENTATION**
 
-## **Step 1: Setting uo OpenSSH server and connecting to EC2 instance**
-    1. I entered directory where .pem key was saved using `cd`, in my case I typed in "cd Downloads"
-    2. I connected to AWS server using ssh: "ssh -i "PBL_key_pair.pem" ubuntu@ec2-13-41-225-1.eu-west-2.compute.amazonaws.com"
+Scope: to gain familiarity with the Linux terminal and commands,  to generate and implement LAMP components 
 
-I installed and configured OpenSSH server, and generated your private and public keys before connecting to the AWS server  
+## **Step 1: Setting up OpenSSH server and connecting to EC2 instance**
 
-Links for help 
+AWS server was connected to with ssh 
+`ssh -i "PBL_key_pair.pem" ubuntu@ec2-13-41-225-1.eu-west-2.compute.amazonaws.com`
+ 
+
+Links used for help 
  [Install OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell)             [Key-based authentication in OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement)
 
 ![connecting to e2c instance](./images/conncet_ec2_instance1.png)
 
 ## **Step 2: Installing Apache and updating the Firewall**
 
-I used the folliwing commands
-
-`sudo apt update` to update a list of packages in package manager
-
-
-![sudo apt update](./images/sudo_apt_update_1.png)
-
-`sudo apt install apache2` to run apache2 package installation
+Following installation of components, Apache status was confirmed 
 
 ![sudo apt install apache2](./images/sudo_apt_install_apache2.png)
 
-Then  `sudo systemctl status apache2` to verify that apache2 is running
 
-![sudo systemctl status apache2](./images/testing_apache.png)
 
-I could not understand the last bit of step 1, the *curl* part. Can you please explain.
+I could not understand the last bit of step 1, the *curl* part. Can you please explain
 
 ![curl](./images/Screenshot%202023-02-11%20015723.png)
 
 ## **Step 3: Installing MySQL**
 
-Used command
-`sudo apt install mysql-server` to install MySQL,
-selected `Y` for yes when asked,
-then used command
-`sudo mysql` to log into MySQL 
+Successful installation of MySQL
 
-![installing MySQL](./images/installing_mysql.png)
+![mysql installation](./images/installing_mysql.png)
+
 
 ### **Setting password for root user on MySQL**
 
-1. Used command `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';` to set passwor for system root 
-2. typed `exit` and exited the console
-3. Ran `sudo mysql_secure_installation`  for password validation
+- Running `sudo mysql_secure_installation`  for password validation
 
-At this point, I had trouble figuring out how to enter the password, as nothing appeared on my screen as I typed. Later, I realized I wasn't supposed to see the password while typing.
+At this point, I had trouble figuring out how to enter the password, as nothing appeared on my screen as I typed. Later, I realized I wasn't supposed to see the password while typing. I was able to set a new password for the root user.
 
-
-3. Selected level 1 for password validation then entered a new password for the root user 
-
-![setting password](./images/setting_password_mysql.png)
-
-4. After answering yes to all questions, I logged back into MySql using `sudo mysql -p`, and exited the console.
-
-![logging](./images/setting_password_mysql_2.png)
+![password](./images/setting_password_mysql_2.png)
 
 ## **Step 4: Installing PHP**
 
 Installed PHP components using `sudo apt install php libapache2-mod-php php-mysql`
 
-My PHP version was confirmed with `php -v`
+ PHP version was confirmed with `php -v`
 
 ![php version](./images/php_version.png)
 
 ## **Step 5: Creating Virtual Host with Apache**
+
+- Directory created for Apache was named *projectlamp*
+ 
+    `sudo mkdir /var/www/projectlamp` 
+- The Virtual Host for Apache was successful in returning message to index.html file
+
+![testing virtual host](./images/testing_website.png)
+
+# **Step 6: enabling PHP on the website**
+
+Syntax added to dir.conf to chnage position of of index.php
+
+`sudo vim /etc/apache2/mods-enabled/dir.conf`
+
+
+Syntax:
+```
+<IfModule mod_dir.c>
+        #Change this:
+        #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+        #To this:
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+</IfModule>
+```
+When my reload of Apache failed, I looked up the error on Google and found that it was caused by a syntax error. Using `apache2ctl configtest`, I found that the error was in dir.conf, which I had recently modified. After deleting the error I was able to succsessfully reload the Apache.
+
+![error](./images/apache2_reload_error.png)
+
+Then istalled index.php which was successful
+
+![php install](./images/PHP_test_script.png)
+
+
+
+
+
+
+
 
 
 
