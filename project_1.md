@@ -20,11 +20,6 @@ Following installation of components, Apache status was confirmed
 ![sudo apt install apache2](./images/sudo_apt_install_apache2.png)
 
 
-
-I could not understand the last bit of step 1, the *curl* part. Can you please explain
-
-![curl](./images/Screenshot%202023-02-11%20015723.png)
-
 ## **Step 3: Installing MySQL**
 
 Successful installation of MySQL
