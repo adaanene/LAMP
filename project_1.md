@@ -1,4 +1,4 @@
-# **PROJECT 1 DOCUMENTATION: LAMP STACK IMPLEMENTATION**
+# PROJECT 1 DOCUMENTATION: LAMP STACK IMPLEMENTATION
 
 Scope: to gain familiarity with the Linux terminal and commands,  to generate and implement LAMP components 
 
@@ -32,6 +32,7 @@ At this point, I had trouble figuring out how to enter the password, as nothing 
 ![password](./images/setting_password_mysql_2.png)
 
 ## Step 4: Installing PHP
+
 Installed PHP components using `sudo apt install php libapache2-mod-php php-mysql`
 
  PHP version was confirmed with `php -v`
@@ -53,10 +54,8 @@ When my reload of Apache failed, I looked up the error on Google and found that 
 
 ![error](./images/apache2_reload_error.png)
 
-Then istalled index.php which was successful
-
 ![php install](./images/PHP_test_script.png)
-
+ 
 
 
 
