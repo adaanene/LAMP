@@ -9,7 +9,7 @@ I installed and configured OpenSSH server, and generated your private and public
 Links for help 
  [Install OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell)             [Key-based authentication in OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement)
 
-![connecting to e2c instance](.\images\conncet_ec2_instance1.png)
+![connecting to e2c instance](./images/conncet_ec2_instance1.png)
 
 ## **Step 2: Installing Apache and updating the Firewall**
 
@@ -34,7 +34,7 @@ I could not understand the last bit of step 1, the *curl* part. Can you please e
 
 ## **Step 3: Installing MySQL**
 
-I used command
+Used command
 `sudo apt install mysql-server` to install MySQL,
 selected `Y` for yes when asked,
 then used command
@@ -44,24 +44,33 @@ then used command
 
 ### **Setting password for root user on MySQL**
 
-1. I ran command `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';` to set passwor for system root 
-2. typed
-`exit` and exited the console
+1. Used command `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';` to set passwor for system root 
+2. typed `exit` and exited the console
 3. Ran `sudo mysql_secure_installation`  for password validation
 
 At this point, I had trouble figuring out how to enter the password, as nothing appeared on my screen as I typed. Later, I realized I wasn't supposed to see the password while typing.
 
-![validate password](./images/validate%20password.png)
 
-3. I selected level 1 for password validation then entered a new password for the root user 
+3. Selected level 1 for password validation then entered a new password for the root user 
 
 ![setting password](./images/setting_password_mysql.png)
 
-4. Then logged back into MySql using `sudo mysql -p`, and exited teh console.
+4. After answering yes to all questions, I logged back into MySql using `sudo mysql -p`, and exited the console.
 
 ![logging](./images/setting_password_mysql_2.png)
 
-## Step 4: STEP 3 — INSTALLING PHP
+## **Step 4: Installing PHP**
+
+Installed PHP components using `sudo apt install php libapache2-mod-php php-mysql`
+
+My PHP version was confirmed with `php -v`
+
+![php version](./images/php_version.png)
+
+## **Step 5: Creating Virtual Host with Apache**
+
+
+
 
 
 
