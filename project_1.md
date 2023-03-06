@@ -194,7 +194,7 @@
     ![testing virtual host](./images/testing_website.png)
 
 
-### Step 6: enabling PHP on the website
+### Enabling PHP on the website
 
 
 **Note** files named index.html take precedence over those named index.php
