@@ -123,7 +123,7 @@
 
 
 
-### Step 4: Install PHP
+###  Install PHP
 
 
 1.  Install 3 PHP packages using `sudo apt install php libapache2-mod-php php-mysql`
@@ -138,7 +138,7 @@
     ![php version](./images/php_version.png)
 
 
-### **Step 5: Configure Virtual Host with Apache**
+### Configure Virtual Host with Apache
 
 
 1. Set up a domain named "projectlamp" (or a name of your choice) and create a diectory for it with `sudo mkdir /var/www/projectlamp` 
@@ -194,7 +194,7 @@
     ![testing virtual host](./images/testing_website.png)
 
 
-### **Step 6: enabling PHP on the website**
+### Step 6: enabling PHP on the website
 
 
 **Note** files named index.html take precedence over those named index.php
