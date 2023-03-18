@@ -76,7 +76,7 @@
     ![mysql installation](./images/installing_mysql.png)
 
 
-3. Set password for system root user with ` ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';` for access to database
+3. Set password for system root user with ` ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';` for access to database
 
 
 4. exit MySQL with `exit`
@@ -85,10 +85,9 @@
 5. Run security script with  `sudo mysql_secure_installation` to set password for MySQL
 
 
-    **Note** after this command you will be asked if you want to validate a password for the database root user, which is not the same as the system root, in fact the database root is an administrative user that has full privileges over the system root. 
-
-
-    **Note** even if you chose not to validate a password you still choose to use a strong password
+    **Note** after this command you will be asked if you want to enable the VALIDATE PASSWORD PLUGIN, to validate a password for the database root user. If enabled, MySQL will reject passwords with an error if they don't meet the specified criteria. 
+    
+    Validation can be stopped without risk, but you should always use secure, one-of-a-kind passwords for database logins. Also note that the database root user is not the same as the system root, in fact the database root is an administrative user that has full privileges over the system root.
 
 
     If you choose 'yes' keep in mind that you need to choose the strength for your password based on the following
@@ -104,13 +103,13 @@
     Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1
     ```
 
-    **Note** In level 2 validation, dictionary file means that common dictionary words are not allowed and will cause an error
+    **Note** In level 2 validation, you should choose a complex password with a mix of upper and lowercase letters, special characters and numbers otherwise you will get an error
 
 
     *Comments: At this point, I had trouble figuring out how to enter the password, as nothing appeared on my screen as I typed. Later, I realized I was not supposed to see the password while typing.*
 
 
-4. After validating password (or not) press 'y' for all other rquestions
+4. After validating password (or not) press `y` for all other rquestions
 
 
 5. Test your new password with `$ sudo mysql -p`
@@ -141,13 +140,15 @@
 ### Configure Virtual Host with Apache
 
 
-1. Set up a domain named "projectlamp" (or a name of your choice) and create a diectory for it with `sudo mkdir /var/www/projectlamp` 
+1. Set up a configuration inside /var/www for your server's domain, here we call the domain projectlamp.
+
+`sudo mkdir /var/www/projectlamp` to to serve documents from your domain
 
 
-2. Give the system user ownwership of the domain with ` sudo chown -R $USER:$USER /var/www/projectlamp`
+2. Give ownwership of your domain's directory to the system user with ` sudo chown -R $USER:$USER /var/www/projectlamp`
 
 
-3. Run `sudo vi /etc/apache2/sites-available/projectlamp.conf` to open a new configuration in Apache "sites-available" directory to serve documents from "preojectlamp". Paste the following into the file, then save and exit the editor.
+3. Run `sudo vi /etc/apache2/sites-available/projectlamp.conf` to open a new configuration in Apache "sites-available" directory. Paste the following into the file, then save and exit the editor.
 
 
     ```
