@@ -244,7 +244,7 @@ You need to change this behaviour in the "/etc/apache2/mods-enabled/dir.conf" fi
     ![php install](./images/PHP_test_script.png)
 
 
-6. The run `sudo rm /var/www/projectlamp/index.php` to remove the file as it contains sensitive information
+6. Run `sudo rm /var/www/projectlamp/index.php` to remove the file as it contains sensitive information
 
 
 
