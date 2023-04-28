@@ -55,10 +55,10 @@
 3. verify that Apache is running with  `sudo systemctl status apache2` 
 
 
-    **Note** In order to access you Apache web server you need to configure an open connection through port 80 in AWS- add it to the inboud rules in the network settings (security groups)
+    **Note** In order to access you Apache web server you need to configure an open connection through port 80 in AWS- add it to the inbound rules in the network settings (security groups)
 
 
- 4. Test that the web server responds to requests for the Inetrnet
+ 4. Test that the web server responds to requests for the Internet
 
 
     Try to access it with Google Chrome (or any other browser) with the URL  `http://<Public-IP-Address>:80` replacing `<Public-IP-Address>` with your instance IP address or you can use its DNS name instead
@@ -109,7 +109,7 @@
     *Comments: At this point, I had trouble figuring out how to enter the password, as nothing appeared on my screen as I typed. Later, I realized I was not supposed to see the password while typing.*
 
 
-4. After validating password (or not) press `y` for all other rquestions
+4. After validating password (or not) press `y` for all other questions
 
 
 5. Test your new password with `$ sudo mysql -p`
@@ -145,7 +145,7 @@
 `sudo mkdir /var/www/projectlamp` to to serve documents from your domain
 
 
-2. Give ownwership of your domain's directory to the system user with ` sudo chown -R $USER:$USER /var/www/projectlamp`
+2. Give ownership of your domain's directory to the system user with ` sudo chown -R $USER:$USER /var/www/projectlamp`
 
 
 3. Run `sudo vi /etc/apache2/sites-available/projectlamp.conf` to open a new configuration in Apache "sites-available" directory. Paste the following into the file, then save and exit the editor.
@@ -201,7 +201,7 @@
 **Note** files named index.html take precedence over those named index.php
 
 
-You need to change this behaviour in the "/etc/apache2/mods-enabled/dir.conf" file
+You need to change this behavior in the "/etc/apache2/mods-enabled/dir.conf" file
 
 
 1. Go to `sudo vim /etc/apache2/mods-enabled/dir.conf`
@@ -221,7 +221,7 @@ You need to change this behaviour in the "/etc/apache2/mods-enabled/dir.conf" fi
 
 3. Reload Apache with `sudo systemctl reload apache2`
 
-    *Comments: When my reload of Apache failed, I looked up the error on Google and found that it was caused by a syntax error. Using `apache2ctl configtest`, I found that the error was in dir.conf, which I had recently modified. After deleting the error I was able to succsessfully reload the Apache.*
+    *Comments: When my reload of Apache failed, I looked up the error on Google and found that it was caused by a syntax error. Using `apache2ctl configtest`, I found that the error was in dir.conf, which I had recently modified. After deleting the error I was able to successfully reload the Apache.*
 
 
     ![error](./images/apache2_reload_error.png)
