@@ -73,9 +73,6 @@
 2. Login to MySQL with `$ sudo mysql`
 
 
-    ![mysql installation](./images/installing_mysql.png)
-
-
 3. Set password for system root user with ` ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';` for access to database
 
 
