@@ -37,12 +37,6 @@
     use: `ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>` 
 
 
-    Your terminal should look like this
-
-
-    ![connecting to e2c instance](./images/conncet_ec2_instance1.png)
-
-
 ### Install Apache and update the Firewall
 
 
