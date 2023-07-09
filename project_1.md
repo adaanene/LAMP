@@ -77,12 +77,6 @@
 
 
     **Note** after this command you will be asked if you want to enable the VALIDATE PASSWORD PLUGIN, to validate a password for the database root user. If enabled, MySQL will reject passwords with an error if they don't meet the specified criteria. 
-    
-    Validation can be stopped without risk, but you should always use secure, one-of-a-kind passwords for database logins. Also note that the database root user is not the same as the system root, in fact the database root is an administrative user that has full privileges over the system root.
-
-
-    If you choose 'yes' keep in mind that you need to choose the strength for your password based on the following
-
 
     ```
     # There are three levels of password validation policy:
@@ -113,9 +107,6 @@
 
 
 1.  Install 3 PHP packages using `sudo apt install php libapache2-mod-php php-mysql`
-
-
-    Apart from the PHP package this command also installs "php-mysql", a PHP module which enables communication PHP to communicate with MySQL, and "libapache2-mod-php", that allows the Web Server Apache to handle PHP files
 
 
 2. check that PHP is installed correctly with `php -v`
