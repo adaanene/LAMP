@@ -115,10 +115,6 @@
     **Note** make sure you have mysql_native_password configured for PHP applications as MySQL PHP library mysqlnd doesn’t support caching_sha2_authentication, the default authentication method for MySQL 8. 
 
 
-    ![password](./images/setting_password_mysql_2.png)
-
-
-
 ###  Install PHP
 
 
